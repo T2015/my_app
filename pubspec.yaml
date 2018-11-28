@@ -66,3 +66,16 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.io/custom-fonts/#from-packages
+
+  assets:
+      - assets/icon.png
+      - assets/message.png
+      - assets/message_select.png
+      - assets/txl.png
+      - assets/txl_select.png
+      - assets/discover.png
+      - assets/discover_select.png
+      - assets/mine.png
+      - assets/mine_select.png
+      - assets/birds.png
+      - assets/avatar.png
