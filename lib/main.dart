@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'pages/main/mainPage.dart';
+import 'utils/routers.dart';
+import 'utils/naviObserver.dart';
 
 void main() => runApp(MyApp());
 
@@ -23,7 +25,9 @@ class MyApp extends StatelessWidget {
         // is not restarted.
         primarySwatch: Colors.blue,
       ),
-      home: MainPage(),
+//      home: MainPage(),
+      routes: routers,
+      navigatorObservers: <NavigatorObserver>[NaviObserver()],
 //      routes: ,
     );
   }

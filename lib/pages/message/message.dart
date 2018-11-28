@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:my_app/models/conversation.dart';
 import 'package:my_app/models/user.dart';
 import 'package:my_app/models/message.dart';
+import 'package:my_app/utils/routers.dart';
 
 class MessagePage extends StatelessWidget{
 
@@ -89,34 +90,43 @@ class _ListRowState extends State<_ListRow>{
   @override
   Widget build(BuildContext context) {
     // TODO: implement build
+    
+    return GestureDetector(
+      
+      onTap: (){
+        Navigator.pushNamed(context, routerName_message_detail);
+      },
+      
+      child: Padding(padding: EdgeInsets.all(10),
+        child: Row(children: <Widget>[
+          CircleAvatar(radius: 20,backgroundImage: AssetImage(widget.con.icon),),
+          Padding(padding: EdgeInsets.only(left: 10,),
+            child: Column(crossAxisAlignment: CrossAxisAlignment.start,
+              children: <Widget>[
+                Text(widget.con.users[1].name,style: TextStyle(fontSize: 17,color: Colors.black87),),
+                Row(
 
-    return Padding(padding: EdgeInsets.all(10),
-      child: Row(children: <Widget>[
-        CircleAvatar(radius: 20,backgroundImage: AssetImage(widget.con.icon),),
-        Padding(padding: EdgeInsets.only(left: 10,),
-          child: Column(crossAxisAlignment: CrossAxisAlignment.start,
-            children: <Widget>[
-              Text(widget.con.users[1].name,style: TextStyle(fontSize: 17,color: Colors.black87),),
-              Row(
+                  mainAxisSize: MainAxisSize.max,
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: <Widget>[
+                    Text(widget.con.lastMessage.msg,style: TextStyle(fontSize: 14,color: Colors.blueGrey),),
+                    Text(widget.con.lastMessage.sendTime.toString(),
+                      style: TextStyle(fontSize: 14,color: Colors.grey,),
+                      textAlign: TextAlign.right,
+                    ),
+                  ],
+                ),
 
-                mainAxisSize: MainAxisSize.max,
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: <Widget>[
-                  Text(widget.con.lastMessage.msg,style: TextStyle(fontSize: 14,color: Colors.blueGrey),),
-                  Text(widget.con.lastMessage.sendTime.toString(),
-                    style: TextStyle(fontSize: 14,color: Colors.grey,),
-                    textAlign: TextAlign.right,
-                  ),
-                ],
-              ),
+              ],),
 
-            ],),
-
+          ),
+        ],
         ),
-      ],
       ),
     );
   }
+
+  
 
 }
 
